@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>家計簿アプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>家計簿アプリ</h1>
+  </header>
+
+  <div class="container">
+    <!-- データ入力エリア（左側） -->
+    <section class="card input-section">
+      <h2>新規データ登録</h2>
+      <form id="transaction-form">
+        <div class="form-group">
+          <label for="date">日付</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="item">品目</label>
+          <input type="text" id="item" name="item" placeholder="例：食費、給料など" required>
+        </div>
+
+        <div class="form-group">
+          <label for="type">収支区分</label>
+          <select id="type" name="type">
+            <option value="expense">支出</option>
+            <option value="income">収入</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">金額</label>
+          <div class="amount-input-wrapper">
+            <input type="number" id="amount" name="amount" placeholder="例：1000" min="1" required>
+            <span class="unit">円</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">追加</button>
+      </form>
+    </section>
+
+    <!-- データ表示エリア（右側） -->
+    <section class="card display-section">
+      <h2>家計簿一覧</h2>
+
+      <!-- 合計金額表示 -->
+      <div class="summary-box">
+        <h3>合計金額</h3>
+        <div class="summary-cards">
+          <div class="summary-item expense">
+            <span class="label">支出合計</span>
+            <span class="value" id="total-expense">0 円</span>
+          </div>
+          <div class="summary-item income">
+            <span class="label">収入合計</span>
+            <span class="value" id="total-income">0 円</span>
+          </div>
+          <div class="summary-item balance">
+            <span class="label">収支差額</span>
+            <span class="value" id="total-balance">0 円</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 登録データ一覧 -->
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>品目</th>
+              <th>区分</th>
+              <th>金額</th>
+            </tr>
+          </thead>
+          <tbody id="transaction-list">
+            <!-- JavaScriptにより動的に生成・書き換えされます -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- index.jsの読み込み -->
+  <script src="index.js"></script>
+</body>
+
+</html>
