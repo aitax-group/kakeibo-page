@@ -1,0 +1,243 @@
+/* 全体設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #f0f7ff;
+  /* 淡いブルーの背景 */
+  color: #333333;
+  line-height: 1.6;
+  padding: 30px 20px;
+}
+
+/* ヘッダー */
+header {
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+header h1 {
+  color: #1a5fb4;
+  /* 深めのブルー */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* 2カラムレイアウトコンテナ */
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* 共通カードスタイル */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(26, 95, 180, 0.08);
+}
+
+.card h2 {
+  color: #1a5fb4;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e1f0ff;
+}
+
+/* 左側：入力セクション */
+.input-section {
+  flex: 1;
+  /* 左側の幅指定 */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* 入力フォームの共通スタイル */
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #cce3de;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fcfefe;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #3584e4;
+  box-shadow: 0 0 0 3px rgba(53, 132, 228, 0.15);
+}
+
+/* 金額入力用の単位付きフィールド */
+.amount-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-input-wrapper input {
+  flex: 1;
+}
+
+.amount-input-wrapper .unit {
+  font-weight: bold;
+  color: #4a5568;
+}
+
+/* 追加ボタン */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #3584e4;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #1c71d8;
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+/* 右側：表示セクション */
+.display-section {
+  flex: 1.6;
+  /* 右側をやや広めに配置 */
+}
+
+/* 合計金額表示ボックス */
+.summary-box {
+  background-color: #eef6ff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.summary-box h3 {
+  font-size: 1rem;
+  color: #1a5fb4;
+  margin-bottom: 12px;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.summary-item {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.summary-item .label {
+  display: block;
+  font-size: 0.8rem;
+  color: #718096;
+  margin-bottom: 4px;
+}
+
+.summary-item .value {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.summary-item.expense .value {
+  color: #e53e3e;
+}
+
+.summary-item.income .value {
+  color: #38a169;
+}
+
+/* 一覧テーブル */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.data-table td {
+  font-size: 0.95rem;
+}
+
+.amount-cell {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* 収支バッジ */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge-expense {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+}
+
+.badge-income {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
